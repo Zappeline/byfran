@@ -588,6 +588,7 @@ header p {
 
 .btn-interesse-carrinho:hover { background: #1ebe5d; }
 
+button {
   padding: 10px;
   background: #222;
   color: white;
