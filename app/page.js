@@ -44,7 +44,22 @@ export default function Home() {
   const [filtroAberto, setFiltroAberto] = useState(false);
   const [precoAberto, setPrecoAberto] = useState(false);
   const [ordemPreco, setOrdemPreco] = useState(null);
+  const [carrinho, setCarrinho] = useState([]);
+  const [carrinhoAberto, setCarrinhoAberto] = useState(false);
   const whatsappNumber = '5551994480372';
+
+  const adicionarCarrinho = (produto) => {
+    setCarrinho(prev => prev.find(p => p.id === produto.id) ? prev : [...prev, produto]);
+  };
+
+  const removerCarrinho = (id) => setCarrinho(prev => prev.filter(p => p.id !== id));
+
+  const handleInteresseCarrinho = () => {
+    const lista = carrinho.map(p => `• *${p.nome}* — R$ ${p.preco.toFixed(2)}`).join('\n');
+    const total = carrinho.reduce((s, p) => s + p.preco, 0);
+    const mensagem = `Olá! Tenho interesse nos produtos:\n\n${lista}\n\n*Total: R$ ${total.toFixed(2)}*`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
+  };
 
   useEffect(() => {
     fetch('/api/produtos')
@@ -53,9 +68,8 @@ export default function Home() {
   }, []);
 
   const handleInteresse = (produto) => {
-    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\nR$ ${produto.preco.toFixed(2)}\n\n${produto.imagem}`;
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\nR$ ${produto.preco.toFixed(2)}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
   };
 
   const selecionarCategoria = (cat) => {
@@ -99,6 +113,10 @@ export default function Home() {
           </div>
         </div>
         <p>Acessórios e Bijuterias</p>
+        <button className="btn-carrinho" onClick={() => setCarrinhoAberto(true)}>
+          🛒
+          {carrinho.length > 0 && <span className="carrinho-count">{carrinho.length}</span>}
+        </button>
       </header>
 
       {menuAberto && (
@@ -175,9 +193,12 @@ export default function Home() {
                 )}
                 <p className="descricao">{produto.descricao}</p>
                 <p className="preco">R$ {produto.preco.toFixed(2)}</p>
-                <button onClick={() => handleInteresse(produto)}>
-                  💬 Tenho Interesse
-                </button>
+                <div className="card-btns">
+                  <button className="btn-interesse" onClick={() => handleInteresse(produto)}>💬 Interesse</button>
+                  <button className="btn-carrinho-add" onClick={() => adicionarCarrinho(produto)}>
+                    {carrinho.find(p => p.id === produto.id) ? '✓ Adicionado' : '🛒 Carrinho'}
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -201,6 +222,42 @@ export default function Home() {
           </a>
         </div>
       </footer>
+
+      {carrinhoAberto && (
+        <div className="modal-imagem" onClick={() => setCarrinhoAberto(false)}>
+          <div className="carrinho-modal" onClick={e => e.stopPropagation()}>
+            <div className="carrinho-header">
+              <h2>🛒 Carrinho</h2>
+              <button className="modal-close-btn" onClick={() => setCarrinhoAberto(false)}>✕</button>
+            </div>
+            {carrinho.length === 0 ? (
+              <p className="carrinho-vazio">Nenhum produto adicionado.</p>
+            ) : (
+              <>
+                <div className="carrinho-lista">
+                  {carrinho.map(p => (
+                    <div key={p.id} className="carrinho-item">
+                      {p.imagem && <img src={p.imagem} alt={p.nome} className="carrinho-thumb" />}
+                      <div className="carrinho-info">
+                        <strong>{p.nome}</strong>
+                        <span>R$ {p.preco.toFixed(2)}</span>
+                      </div>
+                      <button className="btn-remover" onClick={() => removerCarrinho(p.id)}>✕</button>
+                    </div>
+                  ))}
+                </div>
+                <div className="carrinho-total">
+                  <span>Total:</span>
+                  <strong>R$ {carrinho.reduce((s, p) => s + p.preco, 0).toFixed(2)}</strong>
+                </div>
+                <button className="btn-interesse-carrinho" onClick={handleInteresseCarrinho}>
+                  💬 Tenho Interesse — Enviar pelo WhatsApp
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
 
       {imagemModal && (
         <div className="modal-imagem" onClick={() => setImagemModal(null)}>
