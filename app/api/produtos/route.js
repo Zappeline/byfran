@@ -1,41 +1,47 @@
-import clientPromise from '@/lib/mongodb';
+import { readFile, writeFile } from 'fs/promises';
+import { join } from 'path';
 
-async function getCollection() {
-  const client = await clientPromise;
-  return client.db('byfran').collection('produtos');
+const dataPath = join(process.cwd(), 'data', 'produtos.json');
+
+async function getProdutos() {
+  try {
+    const data = await readFile(dataPath, 'utf8');
+    return JSON.parse(data);
+  } catch {
+    return [];
+  }
+}
+
+async function saveProdutos(produtos) {
+  await writeFile(dataPath, JSON.stringify(produtos, null, 2));
 }
 
 export async function GET() {
-  const col = await getCollection();
-  const produtos = await col.find({}).toArray();
-  return Response.json(produtos.map(({ _id, ...p }) => p));
+  const produtos = await getProdutos();
+  return Response.json(produtos);
 }
 
 export async function POST(request) {
-  const col = await getCollection();
-  const produto = await request.json();
-
-  const last = await col.find({}).sort({ id: -1 }).limit(1).toArray();
-  produto.id = last.length > 0 ? last[0].id + 1 : 1;
-
-  await col.insertOne(produto);
-  const { _id, ...result } = produto;
-  return Response.json(result);
+  const novoProduto = await request.json();
+  const produtos = await getProdutos();
+  novoProduto.id = produtos.length > 0 ? Math.max(...produtos.map(p => p.id)) + 1 : 1;
+  produtos.push(novoProduto);
+  await saveProdutos(produtos);
+  return Response.json(novoProduto);
 }
 
 export async function PUT(request) {
-  const col = await getCollection();
-  const produto = await request.json();
-  const { _id, ...data } = produto;
-
-  await col.updateOne({ id: data.id }, { $set: data });
-  return Response.json(data);
+  const produtoAtualizado = await request.json();
+  let produtos = await getProdutos();
+  produtos = produtos.map(p => p.id === produtoAtualizado.id ? produtoAtualizado : p);
+  await saveProdutos(produtos);
+  return Response.json(produtoAtualizado);
 }
 
 export async function DELETE(request) {
-  const col = await getCollection();
   const { id } = await request.json();
-
-  await col.deleteOne({ id });
+  let produtos = await getProdutos();
+  produtos = produtos.filter(p => p.id !== id);
+  await saveProdutos(produtos);
   return Response.json({ success: true });
 }
