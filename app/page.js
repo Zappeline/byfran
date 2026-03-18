@@ -109,10 +109,12 @@ export default function Home() {
           </button>
           <div className="header-logo">
             <img src="/logo.png" alt="By Fran" onError={(e) => e.target.style.display='none'} />
-            <span>By Fran Acessórios</span>
+            <div>
+              <span>By Fran Acessórios</span>
+              <p className="header-subtitulo">Acessórios e Bijuterias</p>
+            </div>
           </div>
         </div>
-        <p>Acessórios e Bijuterias</p>
         <button className="btn-carrinho" onClick={() => setCarrinhoAberto(true)}>
           🛒
           {carrinho.length > 0 && <span className="carrinho-count">{carrinho.length}</span>}
@@ -169,6 +171,26 @@ export default function Home() {
       )}
 
       {menuAberto && <div className="menu-overlay" onClick={() => setMenuAberto(false)} />}
+
+      <div className="banner">
+        <img src="/banner.jpg" alt="By Fran Acessórios" onError={(e) => e.target.parentElement.style.display='none'} />
+      </div>
+
+      <div className="banner-texto">
+        <h2>Qualidade e estilo em cada detalhe</h2>
+        <p>Confira abaixo:</p>
+        <div className="filtro-botoes">
+          {categorias.map(cat => (
+            <button
+              key={cat}
+              className={`btn-filtro ${categoriaAtiva === cat ? 'ativo' : ''}`}
+              onClick={() => setCategoriaAtiva(cat)}
+            >
+              {cat === 'todos' ? 'Todos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="container">
         {(categoriaAtiva !== 'todos' || ordemPreco) && (

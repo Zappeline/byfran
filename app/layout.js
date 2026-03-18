@@ -8,6 +8,7 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/logo.png" />
       </head>
       <body>{children}</body>
     </html>
