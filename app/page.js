@@ -177,7 +177,7 @@ export default function Home() {
       </div>
 
       <div className="banner-texto">
-        <h2>Qualidade e estilo em cada detalhe</h2>
+        <h2>Não é sobre aparência, é sobre se sentir bem</h2>
         <p>Confira abaixo:</p>
         <div className="filtro-botoes">
           {categorias.map(cat => (
