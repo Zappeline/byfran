@@ -204,11 +204,13 @@ header p {
 }
 
 .banner-texto p {
-  font-size: 0.95rem;
-  color: #888;
-  letter-spacing: 1px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  color: #555;
+  letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 20px;
+  font-weight: 400;
 }
 
 .filtro-botoes {
