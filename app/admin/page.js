@@ -7,6 +7,7 @@ const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
 export default function Admin() {
+  const router = useRouter();
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -35,6 +36,11 @@ export default function Admin() {
     });
     if (res.ok) { setAuthenticated(true); setError(''); }
     else setError('Senha incorreta!');
+  };
+
+  const handleLogout = () => {
+    setAuthenticated(false);
+    router.push('/');
   };
 
   const handleUpload = async (e) => {
@@ -93,12 +99,7 @@ export default function Admin() {
     loadProdutos();
   };
 
-  const router = useRouter();
-
-  const handleLogout = () => {
-    setAuthenticated(false);
-    router.push('/');
-  };
+  const handleAdd = () => {
     setEditingProduto(null);
     setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
     setShowModal(true);
