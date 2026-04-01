@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import './admin.css';
 
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
@@ -92,7 +93,12 @@ export default function Admin() {
     loadProdutos();
   };
 
-  const handleAdd = () => {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    setAuthenticated(false);
+    router.push('/');
+  };
     setEditingProduto(null);
     setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
     setShowModal(true);
@@ -117,7 +123,7 @@ export default function Admin() {
     <div className="admin-container">
       <div className="admin-header">
         <h1>By Fran — Painel Admin</h1>
-        <button className="btn-logout" onClick={() => setAuthenticated(false)}>Sair</button>
+        <button className="btn-logout" onClick={handleLogout}>Sair</button>
       </div>
 
       <div className="admin-body">
