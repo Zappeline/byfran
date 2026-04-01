@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react';
 import './admin.css';
 
+const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+
 export default function Admin() {
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
@@ -9,8 +12,8 @@ export default function Admin() {
   const [produtos, setProdutos] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editingProduto, setEditingProduto] = useState(null);
-  const [formData, setFormData] = useState({ nome: '', preco: '', descricao: '', imagens: [''], categoria: [] });
-  const [novaImagem, setNovaImagem] = useState('');
+  const [formData, setFormData] = useState({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (authenticated) loadProdutos();
@@ -33,25 +36,43 @@ export default function Admin() {
     else setError('Senha incorreta!');
   };
 
+  const handleUpload = async (e) => {
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+    setUploading(true);
+    const urls = [];
+    for (const file of files) {
+      const data = new FormData();
+      data.append('file', file);
+      data.append('upload_preset', UPLOAD_PRESET);
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.secure_url) urls.push(json.secure_url);
+    }
+    setFormData(prev => ({ ...prev, imagens: [...prev.imagens, ...urls] }));
+    setUploading(false);
+  };
+
+  const removerImagem = (index) => {
+    setFormData(prev => ({ ...prev, imagens: prev.imagens.filter((_, i) => i !== index) }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const produto = {
       ...formData,
       preco: parseFloat(formData.preco),
-      imagens: formData.imagens.filter(img => img.trim() !== ''),
-      imagem: formData.imagens.find(img => img.trim() !== '') || ''
+      imagem: formData.imagens[0] || ''
     };
-
     if (editingProduto) {
       produto.id = editingProduto.id;
       await fetch('/api/produtos', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(produto) });
     } else {
       await fetch('/api/produtos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(produto) });
     }
-
     setShowModal(false);
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', descricao: '', imagens: [''], categoria: [] });
+    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
     loadProdutos();
   };
 
@@ -59,7 +80,7 @@ export default function Admin() {
     setEditingProduto(produto);
     setFormData({
       ...produto,
-      imagens: produto.imagens?.length ? produto.imagens : produto.imagem ? [produto.imagem] : [''],
+      imagens: produto.imagens?.length ? produto.imagens : produto.imagem ? [produto.imagem] : [],
       categoria: Array.isArray(produto.categoria) ? produto.categoria : produto.categoria ? [produto.categoria] : []
     });
     setShowModal(true);
@@ -73,23 +94,8 @@ export default function Admin() {
 
   const handleAdd = () => {
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', descricao: '', imagens: [''], categoria: [] });
+    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
     setShowModal(true);
-  };
-
-  const adicionarImagem = () => {
-    setFormData({ ...formData, imagens: [...formData.imagens, ''] });
-  };
-
-  const removerImagem = (index) => {
-    const novas = formData.imagens.filter((_, i) => i !== index);
-    setFormData({ ...formData, imagens: novas.length ? novas : [''] });
-  };
-
-  const atualizarImagem = (index, valor) => {
-    const novas = [...formData.imagens];
-    novas[index] = valor;
-    setFormData({ ...formData, imagens: novas });
   };
 
   if (!authenticated) {
@@ -110,29 +116,34 @@ export default function Admin() {
   return (
     <div className="admin-container">
       <div className="admin-header">
-        <h1>📦 Gerenciar Produtos</h1>
+        <h1>By Fran — Painel Admin</h1>
         <button className="btn-logout" onClick={() => setAuthenticated(false)}>Sair</button>
       </div>
 
-      <button className="btn-add" onClick={handleAdd}>➕ Adicionar Produto</button>
+      <div className="admin-body">
+        <div className="admin-toolbar">
+          <span>{produtos.length} produto{produtos.length !== 1 ? 's' : ''}</span>
+          <button className="btn-add" onClick={handleAdd}>+ Novo Produto</button>
+        </div>
 
-      <div className="produtos-list">
-        {produtos.map(produto => (
-          <div key={produto.id} className="produto-item">
-            <img src={produto.imagem} alt={produto.nome} className="produto-img" />
-            <div className="produto-info">
-              <h3>{produto.nome}</h3>
-              <p><strong>{Array.isArray(produto.categoria) ? produto.categoria.map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(' + ') : produto.categoria}</strong></p>
-              <p>{produto.descricao}</p>
-              <p className="produto-preco">R$ {produto.preco.toFixed(2)}</p>
-              {produto.imagens?.length > 1 && <p style={{fontSize: '0.8rem', color: '#999'}}>{produto.imagens.length} fotos</p>}
+        <div className="produtos-list">
+          {produtos.map(produto => (
+            <div key={produto.id} className="produto-item">
+              <img src={produto.imagem} alt={produto.nome} className="produto-img" />
+              <div className="produto-info">
+                <h3>{produto.nome}</h3>
+                <p>{Array.isArray(produto.categoria) ? produto.categoria.map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(' + ') : produto.categoria}</p>
+                <p>{produto.descricao}</p>
+                <p className="produto-preco">R$ {produto.preco.toFixed(2)}</p>
+                {produto.imagens?.length > 1 && <p style={{fontSize: '0.8rem', color: '#999'}}>{produto.imagens.length} fotos</p>}
+              </div>
+              <div className="produto-actions">
+                <button className="btn-edit" onClick={() => handleEdit(produto)}>Editar</button>
+                <button className="btn-delete" onClick={() => handleDelete(produto.id)}>Excluir</button>
+              </div>
             </div>
-            <div className="produto-actions">
-              <button className="btn-edit" onClick={() => handleEdit(produto)}>✏️ Editar</button>
-              <button className="btn-delete" onClick={() => handleDelete(produto.id)}>🗑️ Excluir</button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {showModal && (
@@ -176,31 +187,30 @@ export default function Admin() {
               </div>
 
               <div className="form-group">
-                <label>Fotos (URLs)</label>
-                <small style={{color: '#666', fontSize: '0.85rem', display: 'block', marginBottom: '10px'}}>
-                  📌 Use PostImages.org → Copie o "Direct link"
-                </small>
-                {formData.imagens.map((img, index) => (
-                  <div key={index} className="imagem-input-row">
-                    <input
-                      type="url"
-                      placeholder="https://i.postimg.cc/exemplo/foto.jpg"
-                      value={img}
-                      onChange={(e) => atualizarImagem(index, e.target.value)}
-                    />
-                    {img && <img src={img} alt="preview" className="preview-thumb" onError={(e) => e.target.style.display='none'} />}
-                    {formData.imagens.length > 1 && (
+                <label>Fotos</label>
+                <label className="btn-upload-foto">
+                  {uploading ? '⏳ Enviando...' : '📷 Escolher fotos'}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    style={{display: 'none'}}
+                    onChange={handleUpload}
+                    disabled={uploading}
+                  />
+                </label>
+                <div className="preview-grid">
+                  {formData.imagens.map((img, index) => (
+                    <div key={index} className="preview-item">
+                      <img src={img} alt="preview" className="preview-thumb" />
                       <button type="button" className="btn-remove-img" onClick={() => removerImagem(index)}>✕</button>
-                    )}
-                  </div>
-                ))}
-                <button type="button" className="btn-add-img" onClick={adicionarImagem}>
-                  + Adicionar outra foto
-                </button>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="modal-actions">
-                <button type="submit" className="btn-save">💾 Salvar</button>
+                <button type="submit" className="btn-save" disabled={uploading}>💾 Salvar</button>
                 <button type="button" className="btn-cancel" onClick={() => setShowModal(false)}>❌ Cancelar</button>
               </div>
             </form>

@@ -1,45 +1,29 @@
 [
   {
-    "nome": "pulseira colorida",
-    "preco": 45,
-    "descricao": "jajsjasjsjas",
-    "imagem": "https://i.postimg.cc/zBb9zy0N/images-(4).jpg",
-    "id": 1,
+    "nome": "Pulseira ",
+    "preco": 88,
+    "descricao": "jshahshda",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775008787/iplckxhsvj10dcwhq3qe.jpg"
+    ],
     "categoria": [
-      "pulseira",
-      "colar"
-    ]
-  },
-  {
-    "nome": "brinco argola",
-    "preco": 343,
-    "descricao": "sjjsa",
-    "imagem": "https://i.postimg.cc/nrfwn0s8/images-(3).jpg",
-    "id": 2,
-    "categoria": [
-      "brinco",
-      "colar",
       "pulseira"
     ],
-    "imagens": [
-      "https://i.postimg.cc/nrfwn0s8/images-(3).jpg"
-    ]
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775008787/iplckxhsvj10dcwhq3qe.jpg",
+    "id": 1
   },
   {
-    "nome": "Colar brilhoso de pedra",
-    "preco": 335,
-    "descricao": "Produto criado com perfeição para renovar seu lifestyle",
+    "nome": "sss",
+    "preco": 33,
+    "descricao": "3s3",
     "imagens": [
-      "https://i.postimg.cc/YSxScPZ1/como_limpar_bijuterias.jpg",
-      "https://i.postimg.cc/1zKzxd2w/diferenca_de_joias_semijoias_e_bijuterias_2.jpg",
-      "https://i.postimg.cc/yNTNqGtR/images_(5).jpg",
-      "https://i.postimg.cc/HLtLGNR7/images_(6).jpg"
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009847/eu4xd0uvazds7oy1vlzp.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009848/yefcbbhvrqvjwwqytoqu.jpg"
     ],
     "categoria": [
-      "pulseira",
-      "anel"
+      "pulseira"
     ],
-    "imagem": "https://i.postimg.cc/YSxScPZ1/como_limpar_bijuterias.jpg",
-    "id": 5
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009847/eu4xd0uvazds7oy1vlzp.jpg",
+    "id": 2
   }
 ]
