@@ -14,7 +14,7 @@ export default function Admin() {
   const [produtos, setProdutos] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editingProduto, setEditingProduto] = useState(null);
-  const [formData, setFormData] = useState({ nome: '', preco: '', descricao: '', imagens: [], categoria: [], maisVendido: false });
+  const [formData, setFormData] = useState({ nome: '', preco: '', descricao: '', qualidade: '', imagens: [], categoria: [], maisVendido: false });
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
@@ -101,7 +101,7 @@ export default function Admin() {
 
   const handleAdd = () => {
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [], maisVendido: false });
+    setFormData({ nome: '', preco: '', descricao: '', qualidade: '', imagens: [], categoria: [], maisVendido: false });
     setShowModal(true);
   };
 
@@ -202,6 +202,11 @@ export default function Admin() {
               <div className="form-group">
                 <label>Descrição</label>
                 <textarea value={formData.descricao} onChange={(e) => setFormData({...formData, descricao: e.target.value})} required />
+              </div>
+
+              <div className="form-group">
+                <label>Qualidade da peça</label>
+                <textarea value={formData.qualidade || ''} onChange={(e) => setFormData({...formData, qualidade: e.target.value})} placeholder="Ex: Material premium em aço inoxidável com banhado a ouro 18k..." />
               </div>
 
               <div className="form-group">
