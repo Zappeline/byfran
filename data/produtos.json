@@ -25,5 +25,20 @@
     ],
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009847/eu4xd0uvazds7oy1vlzp.jpg",
     "id": 2
+  },
+  {
+    "nome": "Colar exemplo de texto",
+    "preco": 88,
+    "descricao": "Aquele acessório must-have que transforma qualquer look instantaneamente. O Colar [Nome] traz um design moderno e versátil, sendo a escolha certa para quem ama praticidade sem abrir mão do estilo. Seu acabamento premium garante o brilho perfeito para te acompanhar em todos os momentos.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775256239/lr5hhwuoks9cksid0txf.jpg"
+    ],
+    "categoria": [
+      "colar"
+    ],
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775256239/lr5hhwuoks9cksid0txf.jpg",
+    "id": 3,
+    "maisVendido": true,
+    "cuidados": "Evite deixar guardado em local úmido..........."
   }
 ]

@@ -46,6 +46,7 @@ export default function Home() {
   const [categoriaAtiva, setCategoriaAtiva] = useState('todos');
   const [imagemModal, setImagemModal] = useState(null);
   const [modalIdx, setModalIdx] = useState(0);
+  const [produtoModal, setProdutoModal] = useState(null);
   const [menuAberto, setMenuAberto] = useState(false);
   const [filtroAberto, setFiltroAberto] = useState(false);
   const [precoAberto, setPrecoAberto] = useState(false);
@@ -61,7 +62,7 @@ export default function Home() {
   const removerCarrinho = (id) => setCarrinho(prev => prev.filter(p => p.id !== id));
 
   const handleInteresseCarrinho = () => {
-    const lista = carrinho.map(p => `• *${p.nome}* — R$ ${p.preco.toFixed(2)}`).join('\n');
+    const lista = carrinho.map(p => `*${p.nome}*\n${p.descricao}\n*R$ ${p.preco.toFixed(2)}*`).join('\n\n');
     const total = carrinho.reduce((s, p) => s + p.preco, 0);
     const mensagem = `Olá! Tenho interesse nos produtos:\n\n${lista}\n\n*Total: R$ ${total.toFixed(2)}*`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
@@ -74,7 +75,7 @@ export default function Home() {
   }, []);
 
   const handleInteresse = (produto) => {
-    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\nR$ ${produto.preco.toFixed(2)}`;
+    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\n${produto.descricao}\n\n*R$ ${produto.preco.toFixed(2)}*`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
   };
 
@@ -95,6 +96,7 @@ export default function Home() {
   const produtosFiltrados = produtos
     .filter(p => {
       if (categoriaAtiva === 'todos') return true;
+      if (categoriaAtiva === 'mais vendidos') return p.maisVendido === true;
       const cats = Array.isArray(p.categoria) ? p.categoria : [p.categoria];
       return cats.includes(categoriaAtiva);
     })
@@ -104,7 +106,7 @@ export default function Home() {
       return 0;
     });
 
-  const categorias = ['todos', 'pulseira', 'colar', 'anel', 'brinco'];
+  const categorias = ['todos', 'pulseira', 'colar', 'anel', 'brinco', 'mais vendidos'];
 
   return (
     <>
@@ -143,7 +145,7 @@ export default function Home() {
                   className={`submenu-item ${categoriaAtiva === cat ? 'ativo' : ''}`}
                   onClick={() => selecionarCategoria(cat)}
                 >
-                  {cat === 'todos' ? 'Todos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  {cat === 'todos' ? 'Todos' : cat === 'mais vendidos' ? '★ Mais Vendidos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
                   {categoriaAtiva === cat && <span>✓</span>}
                 </div>
               ))}
@@ -191,7 +193,7 @@ export default function Home() {
               className={`btn-filtro ${categoriaAtiva === cat ? 'ativo' : ''}`}
               onClick={() => setCategoriaAtiva(cat)}
             >
-              {cat === 'todos' ? 'Todos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
+              {cat === 'todos' ? 'Todos' : cat === 'mais vendidos' ? '★ Mais Vendidos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
             </button>
           ))}
         </div>
@@ -208,6 +210,7 @@ export default function Home() {
         <main className="grid">
           {produtosFiltrados.map(produto => (
             <div key={produto.id} className="card">
+              {produto.maisVendido && <div className="badge-mais-vendido">★</div>}
               <CardCarrossel produto={produto} onExpandir={({imgs, idx}) => { setImagemModal(imgs); setModalIdx(idx); }} />
               <div className="card-content">
                 <h2>{produto.nome}</h2>
@@ -221,6 +224,7 @@ export default function Home() {
                 <p className="descricao">{produto.descricao}</p>
                 <p className="preco">R$ {produto.preco.toFixed(2)}</p>
                 <div className="card-btns">
+                  <button className="btn-ver-mais" onClick={() => setProdutoModal(produto)}>Ver mais</button>
                   <button className="btn-interesse" onClick={() => handleInteresse(produto)}>💬 Interesse</button>
                   <button className={`btn-carrinho-add${carrinho.find(p => p.id === produto.id) ? ' adicionado' : ''}`} onClick={() => adicionarCarrinho(produto)}>
                     {carrinho.find(p => p.id === produto.id) ? '✓ Adicionado' : '+ Carrinho'}
@@ -285,6 +289,44 @@ export default function Home() {
                 </button>
               </>
             )}
+          </div>
+        </div>
+      )}
+
+      {produtoModal && (
+        <div className="modal-imagem" onClick={() => setProdutoModal(null)}>
+          <div className="produto-modal" onClick={e => e.stopPropagation()}>
+            <button className="modal-close-btn produto-modal-close" onClick={() => setProdutoModal(null)}>✕</button>
+            <div className="produto-modal-imgs">
+              {(produtoModal.imagens?.length ? produtoModal.imagens : produtoModal.imagem ? [produtoModal.imagem] : []).map((img, i) => (
+                <img key={i} src={img} alt={produtoModal.nome} />
+              ))}
+            </div>
+            <div className="produto-modal-info">
+              {produtoModal.maisVendido && <span className="badge-mais-vendido" style={{position:'static', marginBottom:'12px', display:'inline-flex'}}>★ Mais Vendido</span>}
+              <h2>{produtoModal.nome}</h2>
+              {produtoModal.categoria && (
+                <div style={{display:'flex', gap:'4px', flexWrap:'wrap', margin:'8px 0'}}>
+                  {(Array.isArray(produtoModal.categoria) ? produtoModal.categoria : [produtoModal.categoria]).map(cat => (
+                    <span key={cat} className="categoria-tag">{cat.charAt(0).toUpperCase() + cat.slice(1)}</span>
+                  ))}
+                </div>
+              )}
+              <p className="produto-modal-descricao">{produtoModal.descricao}</p>
+              {produtoModal.cuidados && (
+                <div className="produto-modal-cuidados">
+                  <strong>Cuidados com a peça:</strong>
+                  <p>{produtoModal.cuidados}</p>
+                </div>
+              )}
+              <p className="preco" style={{margin:'16px 0'}}>R$ {produtoModal.preco.toFixed(2)}</p>
+              <div className="card-btns">
+                <button className="btn-interesse" onClick={() => { handleInteresse(produtoModal); setProdutoModal(null); }}>💬 Interesse</button>
+                <button className={`btn-carrinho-add${carrinho.find(p => p.id === produtoModal.id) ? ' adicionado' : ''}`} onClick={() => adicionarCarrinho(produtoModal)}>
+                  {carrinho.find(p => p.id === produtoModal.id) ? '✓ Adicionado' : '+ Carrinho'}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

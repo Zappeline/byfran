@@ -282,9 +282,45 @@ header p {
   margin-bottom: 60px;
 }
 
+.badge-mais-vendido {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #d4af37;
+  color: white;
+  font-size: 0.75rem;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.produto-modal-info .badge-mais-vendido {
+  position: static !important;
+  background: #d4af37;
+  color: white;
+  font-size: 0.8rem;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 4px !important;
+  padding: 6px 12px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: none;
+  margin-bottom: 12px;
+  gap: 6px;
+}
+
 .card {
   background: white;
   border-radius: 0;
+  position: relative;
   padding: 0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -491,6 +527,7 @@ header p {
 }
 
 .card h2 {
+  font-family: 'Roboto', sans-serif;
   font-size: 0.88rem;
   color: #1a1a1a;
   margin-bottom: 4px;
@@ -501,6 +538,7 @@ header p {
 }
 
 .categoria-tag {
+  font-family: 'Roboto', sans-serif;
   display: inline-block;
   font-size: 0.62rem;
   color: #b8a06a;
@@ -513,6 +551,7 @@ header p {
 }
 
 .descricao {
+  font-family: 'Roboto', sans-serif;
   color: #999;
   font-size: 0.8rem;
   margin-bottom: 12px;
@@ -521,6 +560,7 @@ header p {
 }
 
 .preco {
+  font-family: 'Roboto', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -560,10 +600,23 @@ header p {
 
 .card-btns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
   margin-top: 4px;
 }
+
+.btn-ver-mais {
+  background: white;
+  color: #b8a06a;
+  border: 1.5px solid #e8d9b5 !important;
+  font-size: 0.65rem;
+  padding: 9px 4px;
+  width: 100%;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.btn-ver-mais:hover { background: #fdf9f0; color: #b8a06a; }
 
 .btn-interesse {
   background: white;
@@ -795,11 +848,101 @@ footer {
   height: 28px;
 }
 
+.produto-modal {
+  background: white;
+  width: 92%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  border-radius: 2px;
+}
+
+.produto-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  font-size: 1rem;
+}
+
+.produto-modal-imgs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #f7f7f7;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.produto-modal-imgs img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.produto-modal-info {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.produto-modal-info h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.produto-modal-descricao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.produto-modal-cuidados {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.produto-modal-cuidados strong {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #999;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.produto-modal-cuidados p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  color: #777;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .produto-modal {
+    grid-template-columns: 1fr;
+  }
+  .produto-modal-imgs {
+    max-height: 260px;
+  }
+}
+
 @media (max-width: 768px) {
   header h1 {
     font-size: 2rem;
   }
-  
+
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }

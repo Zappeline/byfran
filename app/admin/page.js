@@ -14,7 +14,7 @@ export default function Admin() {
   const [produtos, setProdutos] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editingProduto, setEditingProduto] = useState(null);
-  const [formData, setFormData] = useState({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
+  const [formData, setFormData] = useState({ nome: '', preco: '', descricao: '', imagens: [], categoria: [], maisVendido: false });
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ export default function Admin() {
     }
     setShowModal(false);
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
+    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [], maisVendido: false });
     loadProdutos();
   };
 
@@ -101,7 +101,7 @@ export default function Admin() {
 
   const handleAdd = () => {
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [] });
+    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [], maisVendido: false });
     setShowModal(true);
   };
 
@@ -179,6 +179,17 @@ export default function Admin() {
               </div>
 
               <div className="form-group">
+                <label className="check-label" style={{cursor:'pointer'}}>
+                  <input
+                    type="checkbox"
+                    checked={formData.maisVendido || false}
+                    onChange={(e) => setFormData({...formData, maisVendido: e.target.checked})}
+                  />
+                  ★ Marcar como Mais Vendido
+                </label>
+              </div>
+
+              <div className="form-group">
                 <label>Nome do Produto</label>
                 <input type="text" value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} required />
               </div>
@@ -191,6 +202,11 @@ export default function Admin() {
               <div className="form-group">
                 <label>Descrição</label>
                 <textarea value={formData.descricao} onChange={(e) => setFormData({...formData, descricao: e.target.value})} required />
+              </div>
+
+              <div className="form-group">
+                <label>Cuidados com a peça</label>
+                <textarea value={formData.cuidados || ''} onChange={(e) => setFormData({...formData, cuidados: e.target.value})} placeholder="Ex: Evite contato com água, perfumes..." />
               </div>
 
               <div className="form-group">
