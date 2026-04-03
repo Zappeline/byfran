@@ -313,6 +313,12 @@ export default function Home() {
                 </div>
               )}
               <p className="produto-modal-descricao">{produtoModal.descricao}</p>
+              {produtoModal.qualidade && (
+                <div className="produto-modal-qualidade">
+                  <strong>Qualidade da peça:</strong>
+                  <p>{produtoModal.qualidade}</p>
+                </div>
+              )}
               {produtoModal.cuidados && (
                 <div className="produto-modal-cuidados">
                   <strong>Cuidados com a peça:</strong>

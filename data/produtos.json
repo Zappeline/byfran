@@ -10,7 +10,8 @@
       "pulseira"
     ],
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775008787/iplckxhsvj10dcwhq3qe.jpg",
-    "id": 1
+    "id": 1,
+    "qualidade": "Material premium em aço inoxidável com banhado a ouro 18k. Acabamento polido e espelhado com fechamento seguro."
   },
   {
     "nome": "sss",
@@ -24,7 +25,8 @@
       "pulseira"
     ],
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009847/eu4xd0uvazds7oy1vlzp.jpg",
-    "id": 2
+    "id": 2,
+    "qualidade": "Apresenta acabamento sofisticado com detalhes em resina epóxi e corrente resistente."
   },
   {
     "nome": "Colar exemplo de texto",
@@ -39,6 +41,7 @@
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775256239/lr5hhwuoks9cksid0txf.jpg",
     "id": 3,
     "maisVendido": true,
+    "qualidade": "Colar em ouro 18 quilates com fechamento de segurança tipo lagosta. Hipoalergênico e resistente.",
     "cuidados": "Evite deixar guardado em local úmido..........."
   }
 ]

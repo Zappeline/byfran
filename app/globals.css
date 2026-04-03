@@ -326,6 +326,8 @@ header p {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   overflow: hidden;
   border: 1px solid #efefef;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -524,6 +526,9 @@ header p {
 
 .card-content {
   padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card h2 {
@@ -557,6 +562,7 @@ header p {
   margin-bottom: 12px;
   line-height: 1.5;
   min-height: 36px;
+  flex-grow: 1;
 }
 
 .preco {
@@ -602,7 +608,7 @@ header p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 6px;
-  margin-top: 4px;
+  margin-top: auto;
 }
 
 .btn-ver-mais {
@@ -905,6 +911,28 @@ footer {
   color: #666;
   line-height: 1.6;
   margin-top: 12px;
+}
+
+.produto-modal-qualidade {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.produto-modal-qualidade strong {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #999;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.produto-modal-qualidade p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  color: #777;
+  line-height: 1.6;
 }
 
 .produto-modal-cuidados {
