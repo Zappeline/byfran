@@ -185,6 +185,26 @@
   color: #222 !important;
 }
 
+.produto-preco-desconto {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.produto-preco-original {
+  text-decoration: line-through;
+  color: #888;
+  font-weight: 500;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #777;
+}
+
 .produto-actions {
   display: flex;
   gap: 8px;

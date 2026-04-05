@@ -14,7 +14,7 @@ export default function Admin() {
   const [produtos, setProdutos] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editingProduto, setEditingProduto] = useState(null);
-  const [formData, setFormData] = useState({ nome: '', preco: '', descricao: '', qualidade: '', imagens: [], categoria: [], maisVendido: false });
+  const [formData, setFormData] = useState({ nome: '', preco: '', precoDesconto: '', descricao: '', qualidade: '', cuidados: '', imagens: [], categoria: [], maisVendido: false });
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
@@ -66,9 +66,11 @@ export default function Admin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const precoDesconto = formData.precoDesconto !== '' ? parseFloat(formData.precoDesconto) : undefined;
     const produto = {
       ...formData,
       preco: parseFloat(formData.preco),
+      precoDesconto: Number.isFinite(precoDesconto) ? precoDesconto : undefined,
       imagem: formData.imagens[0] || ''
     };
     if (editingProduto) {
@@ -79,7 +81,7 @@ export default function Admin() {
     }
     setShowModal(false);
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', descricao: '', imagens: [], categoria: [], maisVendido: false });
+    setFormData({ nome: '', preco: '', precoDesconto: '', descricao: '', qualidade: '', cuidados: '', imagens: [], categoria: [], maisVendido: false });
     loadProdutos();
   };
 
@@ -101,7 +103,7 @@ export default function Admin() {
 
   const handleAdd = () => {
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', descricao: '', qualidade: '', imagens: [], categoria: [], maisVendido: false });
+    setFormData({ nome: '', preco: '', precoDesconto: '', descricao: '', qualidade: '', cuidados: '', imagens: [], categoria: [], maisVendido: false });
     setShowModal(true);
   };
 
@@ -141,7 +143,14 @@ export default function Admin() {
                 <h3>{produto.nome}</h3>
                 <p>{Array.isArray(produto.categoria) ? produto.categoria.map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(' + ') : produto.categoria}</p>
                 <p>{produto.descricao}</p>
-                <p className="produto-preco">R$ {produto.preco.toFixed(2)}</p>
+                {produto.precoDesconto != null && produto.precoDesconto < produto.preco ? (
+                  <div className="produto-preco-desconto">
+                    <span className="produto-preco-original">R$ {produto.preco.toFixed(2)}</span>
+                    <strong>R$ {produto.precoDesconto.toFixed(2)}</strong>
+                  </div>
+                ) : (
+                  <p className="produto-preco">R$ {produto.preco.toFixed(2)}</p>
+                )}
                 {produto.imagens?.length > 1 && <p style={{fontSize: '0.8rem', color: '#999'}}>{produto.imagens.length} fotos</p>}
               </div>
               <div className="produto-actions">
@@ -200,12 +209,12 @@ export default function Admin() {
               </div>
 
               <div className="form-group">
-                <label>Descrição</label>
-                <textarea value={formData.descricao} onChange={(e) => setFormData({...formData, descricao: e.target.value})} required />
-              </div>
+                  <label>Preço com Desconto (R$)</label>
+                  <input type="number" step="0.01" value={formData.precoDesconto} onChange={(e) => setFormData({...formData, precoDesconto: e.target.value})} placeholder="Opcional" />
+                  <small>Deixe em branco para desativar o desconto.</small>
+                </div>
 
-              <div className="form-group">
-                <label>Qualidade da peça</label>
+                <div className="form-group">
                 <textarea value={formData.qualidade || ''} onChange={(e) => setFormData({...formData, qualidade: e.target.value})} placeholder="Ex: Material premium em aço inoxidável com banhado a ouro 18k..." />
               </div>
 

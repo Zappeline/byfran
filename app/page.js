@@ -55,6 +55,12 @@ export default function Home() {
   const [carrinhoAberto, setCarrinhoAberto] = useState(false);
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_CATALOGO;
 
+  const obterPrecoAtual = (produto) => produto.precoDesconto != null && produto.precoDesconto < produto.preco ? produto.precoDesconto : produto.preco;
+  const obterDescontoPercentual = (produto) => {
+    if (!produto.precoDesconto || produto.precoDesconto >= produto.preco) return 0;
+    return Math.round((1 - produto.precoDesconto / produto.preco) * 100);
+  };
+
   const adicionarCarrinho = (produto) => {
     setCarrinho(prev => prev.find(p => p.id === produto.id) ? prev : [...prev, produto]);
   };
@@ -62,8 +68,14 @@ export default function Home() {
   const removerCarrinho = (id) => setCarrinho(prev => prev.filter(p => p.id !== id));
 
   const handleInteresseCarrinho = () => {
-    const lista = carrinho.map(p => `*${p.nome}*\n${p.descricao}\n*R$ ${p.preco.toFixed(2)}*`).join('\n\n');
-    const total = carrinho.reduce((s, p) => s + p.preco, 0);
+    const lista = carrinho.map(p => {
+      const precoAtual = obterPrecoAtual(p);
+      const precoTexto = p.precoDesconto != null && p.precoDesconto < p.preco
+        ? `De ~*R$ ${p.preco.toFixed(2)}*~ / Por *R$ ${p.precoDesconto.toFixed(2)}*`
+        : `*R$ ${p.preco.toFixed(2)}*`;
+      return `*${p.nome}*\n${p.descricao}\n${precoTexto}`;
+    }).join('\n\n');
+    const total = carrinho.reduce((s, p) => s + obterPrecoAtual(p), 0);
     const mensagem = `Olá! Tenho interesse nos produtos:\n\n${lista}\n\n*Total: R$ ${total.toFixed(2)}*`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
   };
@@ -75,7 +87,10 @@ export default function Home() {
   }, []);
 
   const handleInteresse = (produto) => {
-    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\n${produto.descricao}\n\n*R$ ${produto.preco.toFixed(2)}*`;
+    const precoTexto = produto.precoDesconto != null && produto.precoDesconto < produto.preco
+      ? `De ~*R$ ${produto.preco.toFixed(2)}*~ / Por *R$ ${produto.precoDesconto.toFixed(2)}*`
+      : `*R$ ${produto.preco.toFixed(2)}*`;
+    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\n${produto.descricao}\n\n${precoTexto}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
   };
 
@@ -97,31 +112,28 @@ export default function Home() {
     .filter(p => {
       if (categoriaAtiva === 'todos') return true;
       if (categoriaAtiva === 'mais vendidos') return p.maisVendido === true;
+      if (categoriaAtiva === 'descontos') return p.precoDesconto != null && p.precoDesconto < p.preco;
       const cats = Array.isArray(p.categoria) ? p.categoria : [p.categoria];
       return cats.includes(categoriaAtiva);
     })
     .sort((a, b) => {
-      if (ordemPreco === 'asc') return a.preco - b.preco;
-      if (ordemPreco === 'desc') return b.preco - a.preco;
+      const precoA = obterPrecoAtual(a);
+      const precoB = obterPrecoAtual(b);
+      if (ordemPreco === 'asc') return precoA - precoB;
+      if (ordemPreco === 'desc') return precoB - precoA;
       return 0;
     });
 
-  const categorias = ['todos', 'pulseira', 'colar', 'anel', 'brinco', 'mais vendidos'];
+  const categorias = ['todos', 'pulseira', 'colar', 'anel', 'brinco', 'mais vendidos', 'descontos'];
 
   return (
     <>
       <header>
-        <div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
-          <button className="hamburger" onClick={() => { setMenuAberto(!menuAberto); setFiltroAberto(false); }}>
-            <span></span><span></span><span></span>
-          </button>
-          <div className="header-logo">
-            <img src="/logo.png" alt="By Fran" onError={(e) => e.target.style.display='none'} />
-            <div>
-              <span>By Fran Acessórios</span>
-              <p className="header-subtitulo">Acessórios e Bijuterias</p>
-            </div>
-          </div>
+        <button className="hamburger" onClick={() => { setMenuAberto(!menuAberto); setFiltroAberto(false); }}>
+          <span></span><span></span><span></span>
+        </button>
+        <div className="header-logo">
+          <img src="/logo.png" alt="By Fran" onError={(e) => e.target.style.display='none'} />
         </div>
         <button className="btn-carrinho" onClick={() => setCarrinhoAberto(true)}>
           🛒
@@ -145,7 +157,7 @@ export default function Home() {
                   className={`submenu-item ${categoriaAtiva === cat ? 'ativo' : ''}`}
                   onClick={() => selecionarCategoria(cat)}
                 >
-                  {cat === 'todos' ? 'Todos' : cat === 'mais vendidos' ? '★ Mais Vendidos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  {cat === 'todos' ? 'Todos' : cat === 'mais vendidos' ? '★ Mais Vendidos' : cat === 'descontos' ? 'Descontos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
                   {categoriaAtiva === cat && <span>✓</span>}
                 </div>
               ))}
@@ -185,7 +197,7 @@ export default function Home() {
       </div>
 
       <div className="banner-texto">
-        <p>Confira os produtos:</p>
+        <p>Não é sobre aparência.<br />é sobre se sentir bem!</p>
         <div className="filtro-botoes">
           {categorias.map(cat => (
             <button
@@ -193,7 +205,7 @@ export default function Home() {
               className={`btn-filtro ${categoriaAtiva === cat ? 'ativo' : ''}`}
               onClick={() => setCategoriaAtiva(cat)}
             >
-              {cat === 'todos' ? 'Todos' : cat === 'mais vendidos' ? '★ Mais Vendidos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
+              {cat === 'todos' ? 'Todos' : cat === 'mais vendidos' ? '★ Mais Vendidos' : cat === 'descontos' ? 'Descontos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
             </button>
           ))}
         </div>
@@ -202,7 +214,7 @@ export default function Home() {
       <div className="container">
         {(categoriaAtiva !== 'todos' || ordemPreco) && (
           <div className="filtro-ativo">
-            {categoriaAtiva !== 'todos' && <span>Categoria: <strong>{categoriaAtiva.charAt(0).toUpperCase() + categoriaAtiva.slice(1)}</strong></span>}
+            {categoriaAtiva !== 'todos' && <span>Categoria: <strong>{categoriaAtiva === 'mais vendidos' ? '★ Mais Vendidos' : categoriaAtiva === 'descontos' ? 'Descontos' : categoriaAtiva.charAt(0).toUpperCase() + categoriaAtiva.slice(1)}</strong></span>}
             {ordemPreco && <span style={{marginLeft: categoriaAtiva !== 'todos' ? '12px' : 0}}>Preço: <strong>{ordemPreco === 'asc' ? 'Menor primeiro' : 'Maior primeiro'}</strong></span>}
             <button className="filtro-limpar" onClick={() => { setCategoriaAtiva('todos'); setOrdemPreco(null); }}>✕ Limpar</button>
           </div>
@@ -222,7 +234,17 @@ export default function Home() {
                   </div>
                 )}
                 <p className="descricao">{produto.descricao}</p>
-                <p className="preco">R$ {produto.preco.toFixed(2)}</p>
+                <div className="preco-bloco">
+                  {produto.precoDesconto != null && produto.precoDesconto < produto.preco ? (
+                    <>
+                      <p className="preco preco-original">R$ {produto.preco.toFixed(2)}</p>
+                      <p className="preco preco-promocional">R$ {produto.precoDesconto.toFixed(2)}</p>
+                      <span className="badge-desconto">-{obterDescontoPercentual(produto)}%</span>
+                    </>
+                  ) : (
+                    <p className="preco">R$ {produto.preco.toFixed(2)}</p>
+                  )}
+                </div>
                 <div className="card-btns">
                   <button className="btn-ver-mais" onClick={() => setProdutoModal(produto)}>Ver mais</button>
                   <button className="btn-interesse" onClick={() => handleInteresse(produto)}>💬 Interesse</button>
@@ -274,7 +296,7 @@ export default function Home() {
                       {p.imagem && <img src={p.imagem} alt={p.nome} className="carrinho-thumb" />}
                       <div className="carrinho-info">
                         <strong>{p.nome}</strong>
-                        <span>R$ {p.preco.toFixed(2)}</span>
+                        <span>R$ {obterPrecoAtual(p).toFixed(2)}</span>
                       </div>
                       <button className="btn-remover" onClick={() => removerCarrinho(p.id)}>✕</button>
                     </div>
@@ -282,7 +304,7 @@ export default function Home() {
                 </div>
                 <div className="carrinho-total">
                   <span>Total:</span>
-                  <strong>R$ {carrinho.reduce((s, p) => s + p.preco, 0).toFixed(2)}</strong>
+                  <strong>R$ {carrinho.reduce((s, p) => s + obterPrecoAtual(p), 0).toFixed(2)}</strong>
                 </div>
                 <button className="btn-interesse-carrinho" onClick={handleInteresseCarrinho}>
                   💬 Tenho Interesse — Enviar pelo WhatsApp
@@ -325,7 +347,17 @@ export default function Home() {
                   <p>{produtoModal.cuidados}</p>
                 </div>
               )}
-              <p className="preco" style={{margin:'16px 0'}}>R$ {produtoModal.preco.toFixed(2)}</p>
+              <div className="preco-bloco" style={{margin:'16px 0'}}>
+                {produtoModal.precoDesconto != null && produtoModal.precoDesconto < produtoModal.preco ? (
+                  <>
+                    <p className="preco preco-original">R$ {produtoModal.preco.toFixed(2)}</p>
+                    <p className="preco preco-promocional">R$ {produtoModal.precoDesconto.toFixed(2)}</p>
+                    <span className="badge-desconto">-{obterDescontoPercentual(produtoModal)}%</span>
+                  </>
+                ) : (
+                  <p className="preco">R$ {produtoModal.preco.toFixed(2)}</p>
+                )}
+              </div>
               <div className="card-btns">
                 <button className="btn-interesse" onClick={() => { handleInteresse(produtoModal); setProdutoModal(null); }}>💬 Interesse</button>
                 <button className={`btn-carrinho-add${carrinho.find(p => p.id === produtoModal.id) ? ' adicionado' : ''}`} onClick={() => adicionarCarrinho(produtoModal)}>

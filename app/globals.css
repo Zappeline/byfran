@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: 70px;
 }
 
 .container {
@@ -19,10 +20,14 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   background: white;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,17 +35,19 @@ header {
 }
 
 .header-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
 }
 
 .header-logo img {
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #d4af37;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
 }
 
 .header-logo span {
@@ -58,6 +65,7 @@ header {
   text-transform: uppercase;
   margin-top: 2px;
 }
+
 
 header p {
   font-size: 0.75rem;
@@ -571,6 +579,38 @@ header p {
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.preco-bloco {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.preco-original {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #777;
+  text-decoration: line-through;
+}
+
+.preco-promocional {
+  color: #d4af37;
+}
+
+.badge-desconto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  background: #d9534f;
   letter-spacing: 0.5px;
 }
 

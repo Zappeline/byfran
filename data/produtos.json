@@ -2,6 +2,7 @@
   {
     "nome": "Pulseira ",
     "preco": 88,
+    "precoDesconto": 69.9,
     "descricao": "jshahshda",
     "imagens": [
       "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775008787/iplckxhsvj10dcwhq3qe.jpg"
@@ -26,11 +27,14 @@
     ],
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009847/eu4xd0uvazds7oy1vlzp.jpg",
     "id": 2,
-    "qualidade": "Apresenta acabamento sofisticado com detalhes em resina epóxi e corrente resistente."
+    "qualidade": "Apresenta acabamento sofisticado com detalhes em resina epóxi e corrente resistente.",
+    "cuidados": "sdsdds",
+    "precoDesconto": 28
   },
   {
     "nome": "Colar exemplo de texto",
     "preco": 88,
+    "precoDesconto": 74,
     "descricao": "Aquele acessório must-have que transforma qualquer look instantaneamente. O Colar [Nome] traz um design moderno e versátil, sendo a escolha certa para quem ama praticidade sem abrir mão do estilo. Seu acabamento premium garante o brilho perfeito para te acompanhar em todos os momentos.",
     "imagens": [
       "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775256239/lr5hhwuoks9cksid0txf.jpg"
