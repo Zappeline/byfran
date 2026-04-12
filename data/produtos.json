@@ -46,6 +46,24 @@
     "id": 3,
     "maisVendido": true,
     "qualidade": "Colar em ouro 18 quilates com fechamento de segurança tipo lagosta. Hipoalergênico e resistente.",
-    "cuidados": "Evite deixar guardado em local úmido..........."
+    "cuidados": "Evite deixar guardado em local úmido...........",
+    "esgotado": true
+  },
+  {
+    "nome": "puls",
+    "preco": 89,
+    "precoDesconto": 9,
+    "descricao": "skskks",
+    "qualidade": "jjj",
+    "cuidados": "jj",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1776018360/fyctzoomxyphe4roxnyr.jpg"
+    ],
+    "categoria": [
+      "pulseira"
+    ],
+    "maisVendido": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1776018360/fyctzoomxyphe4roxnyr.jpg",
+    "id": 4
   }
 ]

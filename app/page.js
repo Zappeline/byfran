@@ -53,6 +53,8 @@ export default function Home() {
   const [ordemPreco, setOrdemPreco] = useState(null);
   const [carrinho, setCarrinho] = useState([]);
   const [carrinhoAberto, setCarrinhoAberto] = useState(false);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const produtosPorPagina = 10;
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_CATALOGO;
 
   const obterPrecoAtual = (produto) => produto.precoDesconto != null && produto.precoDesconto < produto.preco ? produto.precoDesconto : produto.preco;
@@ -90,7 +92,8 @@ export default function Home() {
     const precoTexto = produto.precoDesconto != null && produto.precoDesconto < produto.preco
       ? `De ~*R$ ${produto.preco.toFixed(2)}*~ / Por *R$ ${produto.precoDesconto.toFixed(2)}*`
       : `*R$ ${produto.preco.toFixed(2)}*`;
-    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\n${produto.descricao}\n\n${precoTexto}`;
+    const statusTexto = produto.esgotado ? '\n\n*Produto esgotado - Avise quando estiver disponível*' : '';
+    const mensagem = `Olá! Tenho interesse no produto:\n\n*${produto.nome}*\n${produto.descricao}${statusTexto}\n\n${precoTexto}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
   };
 
@@ -99,6 +102,7 @@ export default function Home() {
     setMenuAberto(false);
     setFiltroAberto(false);
     setPrecoAberto(false);
+    setPaginaAtual(1);
   };
 
   const selecionarOrdem = (ordem) => {
@@ -106,6 +110,7 @@ export default function Home() {
     setMenuAberto(false);
     setFiltroAberto(false);
     setPrecoAberto(false);
+    setPaginaAtual(1);
   };
 
   const produtosFiltrados = produtos
@@ -123,6 +128,9 @@ export default function Home() {
       if (ordemPreco === 'desc') return precoB - precoA;
       return 0;
     });
+
+  const totalPaginas = Math.ceil(produtosFiltrados.length / produtosPorPagina);
+  const produtosPaginados = produtosFiltrados.slice((paginaAtual - 1) * produtosPorPagina, paginaAtual * produtosPorPagina);
 
   const categorias = ['todos', 'pulseira', 'colar', 'anel', 'brinco', 'mais vendidos', 'descontos'];
 
@@ -216,13 +224,14 @@ export default function Home() {
           <div className="filtro-ativo">
             {categoriaAtiva !== 'todos' && <span>Categoria: <strong>{categoriaAtiva === 'mais vendidos' ? '★ Mais Vendidos' : categoriaAtiva === 'descontos' ? 'Descontos' : categoriaAtiva.charAt(0).toUpperCase() + categoriaAtiva.slice(1)}</strong></span>}
             {ordemPreco && <span style={{marginLeft: categoriaAtiva !== 'todos' ? '12px' : 0}}>Preço: <strong>{ordemPreco === 'asc' ? 'Menor primeiro' : 'Maior primeiro'}</strong></span>}
-            <button className="filtro-limpar" onClick={() => { setCategoriaAtiva('todos'); setOrdemPreco(null); }}>✕ Limpar</button>
+            <button className="filtro-limpar" onClick={() => { setCategoriaAtiva('todos'); setOrdemPreco(null); setPaginaAtual(1); }}>✕ Limpar</button>
           </div>
         )}
         <main className="grid">
-          {produtosFiltrados.map(produto => (
-            <div key={produto.id} className="card">
+          {produtosPaginados.map(produto => (
+            <div key={produto.id} className={`card ${produto.esgotado ? 'esgotado' : ''}`}>
               {produto.maisVendido && <div className="badge-mais-vendido">★</div>}
+              {produto.esgotado && <div className="badge-esgotado">ESGOTADO</div>}
               <CardCarrossel produto={produto} onExpandir={({imgs, idx}) => { setImagemModal(imgs); setModalIdx(idx); }} />
               <div className="card-content">
                 <h2>{produto.nome}</h2>
@@ -247,15 +256,23 @@ export default function Home() {
                 </div>
                 <div className="card-btns">
                   <button className="btn-ver-mais" onClick={() => setProdutoModal(produto)}>Ver mais</button>
-                  <button className="btn-interesse" onClick={() => handleInteresse(produto)}>💬 Interesse</button>
-                  <button className={`btn-carrinho-add${carrinho.find(p => p.id === produto.id) ? ' adicionado' : ''}`} onClick={() => adicionarCarrinho(produto)}>
-                    {carrinho.find(p => p.id === produto.id) ? '✓ Adicionado' : '+ Carrinho'}
+                  <button className="btn-interesse" onClick={() => handleInteresse(produto)}>{produto.esgotado ? 'Avise quando estiver disponível' : '💬 Interesse'}</button>
+                  <button className={`btn-carrinho-add${carrinho.find(p => p.id === produto.id) ? ' adicionado' : ''}`} onClick={() => adicionarCarrinho(produto)} disabled={produto.esgotado}>
+                    {produto.esgotado ? 'Esgotado' : carrinho.find(p => p.id === produto.id) ? '✓ Adicionado' : '+ Carrinho'}
                   </button>
                 </div>
               </div>
             </div>
           ))}
         </main>
+
+        {totalPaginas > 1 && (
+          <div className="paginacao">
+            <button onClick={() => setPaginaAtual(p => Math.max(1, p - 1))} disabled={paginaAtual === 1}>‹ Anterior</button>
+            <span>Página {paginaAtual} de {totalPaginas}</span>
+            <button onClick={() => setPaginaAtual(p => Math.min(totalPaginas, p + 1))} disabled={paginaAtual === totalPaginas}>Próxima ›</button>
+          </div>
+        )}
       </div>
 
       <footer>
@@ -359,9 +376,9 @@ export default function Home() {
                 )}
               </div>
               <div className="card-btns">
-                <button className="btn-interesse" onClick={() => { handleInteresse(produtoModal); setProdutoModal(null); }}>💬 Interesse</button>
-                <button className={`btn-carrinho-add${carrinho.find(p => p.id === produtoModal.id) ? ' adicionado' : ''}`} onClick={() => adicionarCarrinho(produtoModal)}>
-                  {carrinho.find(p => p.id === produtoModal.id) ? '✓ Adicionado' : '+ Carrinho'}
+                <button className="btn-interesse" onClick={() => { handleInteresse(produtoModal); setProdutoModal(null); }}>{produtoModal.esgotado ? 'Avise quando estiver disponível' : '💬 Interesse'}</button>
+                <button className={`btn-carrinho-add${carrinho.find(p => p.id === produtoModal.id) ? ' adicionado' : ''}`} onClick={() => adicionarCarrinho(produtoModal)} disabled={produtoModal.esgotado}>
+                  {produtoModal.esgotado ? 'Esgotado' : carrinho.find(p => p.id === produtoModal.id) ? '✓ Adicionado' : '+ Carrinho'}
                 </button>
               </div>
             </div>

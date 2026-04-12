@@ -14,7 +14,7 @@ export default function Admin() {
   const [produtos, setProdutos] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editingProduto, setEditingProduto] = useState(null);
-  const [formData, setFormData] = useState({ nome: '', preco: '', precoDesconto: '', descricao: '', qualidade: '', cuidados: '', imagens: [], categoria: [], maisVendido: false });
+  const [formData, setFormData] = useState({ nome: '', preco: '', precoDesconto: '', descricao: '', qualidade: '', cuidados: '', imagens: [], categoria: [], maisVendido: false, esgotado: false });
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
@@ -44,19 +44,27 @@ export default function Admin() {
   };
 
   const handleUpload = async (e) => {
-    const files = Array.from(e.target.files);
-    if (!files.length) return;
+    const file = e.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      alert('Por favor, selecione apenas arquivos de imagem.');
+      return;
+    }
     setUploading(true);
-    const urls = [];
-    for (const file of files) {
+    try {
       const data = new FormData();
       data.append('file', file);
       data.append('upload_preset', UPLOAD_PRESET);
       const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, { method: 'POST', body: data });
       const json = await res.json();
-      if (json.secure_url) urls.push(json.secure_url);
+      if (json.secure_url) {
+        setFormData(prev => ({ ...prev, imagens: [...prev.imagens, json.secure_url] }));
+      } else {
+        alert('Erro ao enviar imagem. Tente novamente.');
+      }
+    } catch (error) {
+      alert('Erro de conexão. Verifique sua internet e tente novamente.');
     }
-    setFormData(prev => ({ ...prev, imagens: [...prev.imagens, ...urls] }));
     setUploading(false);
   };
 
@@ -103,7 +111,7 @@ export default function Admin() {
 
   const handleAdd = () => {
     setEditingProduto(null);
-    setFormData({ nome: '', preco: '', precoDesconto: '', descricao: '', qualidade: '', cuidados: '', imagens: [], categoria: [], maisVendido: false });
+    setFormData({ nome: '', preco: '', precoDesconto: '', descricao: '', qualidade: '', cuidados: '', imagens: [], categoria: [], maisVendido: false, esgotado: false });
     setShowModal(true);
   };
 
@@ -199,8 +207,24 @@ export default function Admin() {
               </div>
 
               <div className="form-group">
+                <label className="check-label" style={{cursor:'pointer'}}>
+                  <input
+                    type="checkbox"
+                    checked={formData.esgotado || false}
+                    onChange={(e) => setFormData({...formData, esgotado: e.target.checked})}
+                  />
+                  🚫 Marcar como Esgotado
+                </label>
+              </div>
+
+              <div className="form-group">
                 <label>Nome do Produto</label>
                 <input type="text" value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} required />
+              </div>
+
+              <div className="form-group">
+                <label>Descrição</label>
+                <textarea value={formData.descricao || ''} onChange={(e) => setFormData({...formData, descricao: e.target.value})} placeholder="Descreva o produto..." />
               </div>
 
               <div className="form-group">
@@ -226,11 +250,10 @@ export default function Admin() {
               <div className="form-group">
                 <label>Fotos</label>
                 <label className="btn-upload-foto">
-                  {uploading ? '⏳ Enviando...' : '📷 Escolher fotos'}
+                  {uploading ? '⏳ Enviando...' : '📷 Escolher foto'}
                   <input
                     type="file"
-                    accept="image/*"
-                    multiple
+                    accept="image/png,image/jpeg,image/webp,image/jpg"
                     style={{display: 'none'}}
                     onChange={handleUpload}
                     disabled={uploading}
