@@ -1,69 +1,20 @@
 [
   {
-    "nome": "Pulseira ",
-    "preco": 88,
-    "precoDesconto": 69.9,
-    "descricao": "jshahshda",
+    "nome": "Argola click com pingente cruz",
+    "preco": 29,
+    "descricao": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "qualidade": "",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
     "imagens": [
-      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775008787/iplckxhsvj10dcwhq3qe.jpg"
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193854/gt2six32gs0inhqpt0ck.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193860/dsbfsy5ekmc0ym6ms4xw.jpg"
     ],
     "categoria": [
-      "pulseira"
-    ],
-    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775008787/iplckxhsvj10dcwhq3qe.jpg",
-    "id": 1,
-    "qualidade": "Material premium em aço inoxidável com banhado a ouro 18k. Acabamento polido e espelhado com fechamento seguro."
-  },
-  {
-    "nome": "sss",
-    "preco": 33,
-    "descricao": "3s3",
-    "imagens": [
-      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009847/eu4xd0uvazds7oy1vlzp.jpg",
-      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009848/yefcbbhvrqvjwwqytoqu.jpg"
-    ],
-    "categoria": [
-      "pulseira"
-    ],
-    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775009847/eu4xd0uvazds7oy1vlzp.jpg",
-    "id": 2,
-    "qualidade": "Apresenta acabamento sofisticado com detalhes em resina epóxi e corrente resistente.",
-    "cuidados": "sdsdds",
-    "precoDesconto": 28
-  },
-  {
-    "nome": "Colar exemplo de texto",
-    "preco": 88,
-    "precoDesconto": 74,
-    "descricao": "Aquele acessório must-have que transforma qualquer look instantaneamente. O Colar [Nome] traz um design moderno e versátil, sendo a escolha certa para quem ama praticidade sem abrir mão do estilo. Seu acabamento premium garante o brilho perfeito para te acompanhar em todos os momentos.",
-    "imagens": [
-      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775256239/lr5hhwuoks9cksid0txf.jpg"
-    ],
-    "categoria": [
-      "colar"
-    ],
-    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1775256239/lr5hhwuoks9cksid0txf.jpg",
-    "id": 3,
-    "maisVendido": true,
-    "qualidade": "Colar em ouro 18 quilates com fechamento de segurança tipo lagosta. Hipoalergênico e resistente.",
-    "cuidados": "Evite deixar guardado em local úmido...........",
-    "esgotado": true
-  },
-  {
-    "nome": "puls",
-    "preco": 89,
-    "precoDesconto": 9,
-    "descricao": "skskks",
-    "qualidade": "jjj",
-    "cuidados": "jj",
-    "imagens": [
-      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1776018360/fyctzoomxyphe4roxnyr.jpg"
-    ],
-    "categoria": [
-      "pulseira"
+      "brinco"
     ],
     "maisVendido": false,
-    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1776018360/fyctzoomxyphe4roxnyr.jpg",
-    "id": 4
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193854/gt2six32gs0inhqpt0ck.jpg",
+    "id": 1
   }
 ]
