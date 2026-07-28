@@ -2,8 +2,8 @@
   {
     "nome": "Argola click com pingente cruz",
     "preco": 29,
-    "descricao": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
-    "qualidade": "",
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
     "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
     "imagens": [
       "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193854/gt2six32gs0inhqpt0ck.jpg",
@@ -16,5 +16,501 @@
     "esgotado": false,
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193854/gt2six32gs0inhqpt0ck.jpg",
     "id": 1
+  },
+  {
+    "nome": "Argola click com pingente trevo",
+    "preco": 29,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785194800/sdx9lx945szu7e9xvtqf.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785194800/sdx9lx945szu7e9xvtqf.jpg",
+    "id": 2
+  },
+  {
+    "nome": "Brinco Angel",
+    "preco": 59,
+    "precoDesconto": 49,
+    "descricao": "A forma orgânica e o shape ondulado conferem movimento e fluidez ao brinco Angel. ",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785194898/ncbxupiesdfnfeqzmfxf.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785194904/vfnffxc0lfx6l1vu8yoi.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785194898/ncbxupiesdfnfeqzmfxf.jpg",
+    "id": 3
+  },
+  {
+    "nome": "Espiral cravejado",
+    "preco": 44,
+    "precoDesconto": 39,
+    "descricao": "O brinco espiral cravejado com zircônias é perfeito para looks discretos e elegantes.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196080/cz3ewpj1zqoetkvc950o.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196096/a9vrk7wl6zxgdompvjcy.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196080/cz3ewpj1zqoetkvc950o.jpg",
+    "id": 4
+  },
+  {
+    "nome": "Argola Maira",
+    "preco": 49,
+    "descricao": "Romântica e minimalista, a argola Maira dá um toque de modernidade ao seu look.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196220/ss26kfb994dbr7m3nn3g.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196235/lfwq3vd0mnial0vqedwh.jpg"
+    ],
+    "categoria": [],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196220/ss26kfb994dbr7m3nn3g.jpg",
+    "id": 5
+  },
+  {
+    "nome": "Argola Daniela",
+    "preco": 59,
+    "descricao": "A argola oval Daniela é um clássico que não pode faltar no teu porta-joias. Discreta e minimalista é uma peça coringa que combina vários looks.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196320/wavxmmtoynh1c81nieqc.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196332/r5la5gqcejghrxrkptiy.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196320/wavxmmtoynh1c81nieqc.jpg",
+    "id": 6
+  },
+  {
+    "nome": "Brinco Pitty",
+    "preco": 59,
+    "descricao": "O brinco Pitty  é o ideal para um look irreverente, moderno e cheio de atitude.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196426/mvureb50iubsml6sn0rm.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196436/cdi3vduz4yvkzeqi3in4.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196426/mvureb50iubsml6sn0rm.jpg",
+    "id": 7
+  },
+  {
+    "nome": "Brinco Meia Esfera",
+    "preco": 44,
+    "precoDesconto": 39,
+    "descricao": "Brinco meia esfera é básico,  elegante e atemporal.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196592/q8xjrkm8mfpeedput1si.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196592/q8xjrkm8mfpeedput1si.jpg",
+    "id": 8
+  },
+  {
+    "nome": "Brinco Verônica",
+    "preco": 99,
+    "descricao": "O brinco Verônica traz a serenidade da Ágata verde e combina formas clássicas e modernas. Versátil,  pode ser usado de duas formas e multiplicar seus looks.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196689/pkfouczltnnuiknesnj9.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196696/ktvbkk4crf7nbtzykwzr.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196689/pkfouczltnnuiknesnj9.jpg",
+    "id": 9
+  },
+  {
+    "nome": "Brinco Lolla",
+    "preco": 39,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196783/edhi2x6f4n0donmbetgy.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196783/edhi2x6f4n0donmbetgy.jpg",
+    "id": 10
+  },
+  {
+    "nome": "Brinco Bia",
+    "preco": 79,
+    "descricao": "O brinco Bia, composto por três corações abaulados cravejados com zircônias, imprimem romantismo e brilho na medida certa.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196847/qi4p6ocm8j8prircvvs6.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196847/qi4p6ocm8j8prircvvs6.jpg",
+    "id": 11
+  },
+  {
+    "nome": "Brinco Rose",
+    "preco": 49,
+    "descricao": "A forma texturizada e delicada de coração e o ponto de luz do brinco Rose mostram uma elegância discreta e sofisticada que combina com muitos looks.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196937/vnher0s1zbcoveyvddq0.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785196937/vnher0s1zbcoveyvddq0.jpg",
+    "id": 12
+  },
+  {
+    "nome": "Brinco Gota Vazado",
+    "preco": 39,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197013/dnvwhkmkwopoqpn50xsl.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197024/s8yhawwrp0hq80fz9jiq.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197013/dnvwhkmkwopoqpn50xsl.jpg",
+    "id": 13
+  },
+  {
+    "nome": "Brinco Pri",
+    "preco": 44,
+    "descricao": "Delicado e discreto, combina com looks casuais.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197106/yoyzyyk8itwplqqujgx7.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197106/yoyzyyk8itwplqqujgx7.jpg",
+    "id": 14
+  },
+  {
+    "nome": "Brinco Lucena",
+    "preco": 69,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197177/qyo7ld96ieejfzdmq11t.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197177/qyo7ld96ieejfzdmq11t.jpg",
+    "id": 15
+  },
+  {
+    "nome": "Brinco Duda",
+    "preco": 49,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197249/g4vblxcd0ck2rl8zwrhe.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197264/um9jfoimsnvaj6n9phs6.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197249/g4vblxcd0ck2rl8zwrhe.jpg",
+    "id": 16
+  },
+  {
+    "nome": "Brinco Salete",
+    "preco": 79,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197315/gkydxlmvs6edxkwwx8cr.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197325/u04gxluefemco36omiot.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197315/gkydxlmvs6edxkwwx8cr.jpg",
+    "id": 17
+  },
+  {
+    "nome": "Brinco Carla",
+    "preco": 89,
+    "precoDesconto": 79,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197386/onarmptjixnv0do2siho.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197393/tompnszjukkidkaoooko.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197386/onarmptjixnv0do2siho.jpg",
+    "id": 18
+  },
+  {
+    "nome": "Brinco Dedé",
+    "preco": 89,
+    "descricao": "A beleza do brinco Dedé está perfeição e na simplicidade de suas formas. Versátil, pode ser usado de duas formas e multiplicar seus looks.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197445/bnyewe0wcpgswabrmnfu.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197454/urrpbj6pobt2epfhscsb.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197445/bnyewe0wcpgswabrmnfu.jpg",
+    "id": 19
+  },
+  {
+    "nome": "Argola Eduarda",
+    "preco": 89,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197540/xqlqpqn5wabwpjogehor.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197540/xqlqpqn5wabwpjogehor.jpg",
+    "id": 20
+  },
+  {
+    "nome": "Brinco Lua",
+    "preco": 59,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197601/blwtpxiyabgb8v3n1eup.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197609/wfnftx2uljopjawvfljc.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197601/blwtpxiyabgb8v3n1eup.jpg",
+    "id": 21
+  },
+  {
+    "nome": "Brinco Quadrado Vazado",
+    "preco": 59,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197668/km9dq1newtcb7mdt0rrt.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197679/fui11uegwcyasfopjasq.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197668/km9dq1newtcb7mdt0rrt.jpg",
+    "id": 22
+  },
+  {
+    "nome": "Argola Leonora",
+    "preco": 79,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197736/vxqhlkom3qp9rcc5afnc.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197742/hvfavealjo8feurus5f7.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197736/vxqhlkom3qp9rcc5afnc.jpg",
+    "id": 23
+  },
+  {
+    "nome": "Brinco Rubia",
+    "preco": 89,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197818/eoxogoridwna2qhnoebk.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197827/xyr3elqyxeddokmoe41p.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197818/eoxogoridwna2qhnoebk.jpg",
+    "id": 24
+  },
+  {
+    "nome": "Argola Jessica",
+    "preco": 89,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197881/zrfsum4uqufx7l9cvq1z.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197887/jrpejrntocolqf8mgcmj.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197881/zrfsum4uqufx7l9cvq1z.jpg",
+    "id": 25
+  },
+  {
+    "nome": "Brinco Helena",
+    "preco": 89,
+    "descricao": "Disponível nos banhos  dourado e em ródio.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197971/wpomevf33b2etnefzshc.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197977/rskmq1mqwiwvxrm9nczq.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197971/wpomevf33b2etnefzshc.jpg",
+    "id": 26
+  },
+  {
+    "nome": "Argola Texturizada",
+    "preco": 79,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198170/oztfbezlxmshfsq1zvoy.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198170/oztfbezlxmshfsq1zvoy.jpg",
+    "id": 27
+  },
+  {
+    "nome": "Argola Vick",
+    "preco": 59,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198231/fz4dzvz3gniyfsf2bvlu.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198231/fz4dzvz3gniyfsf2bvlu.jpg",
+    "id": 28
+  },
+  {
+    "nome": "Brinco Marisa",
+    "preco": 89,
+    "descricao": "",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198339/mxkzyruqxfyefyinleot.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198344/db0cgywt9mgbynq3axym.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198339/mxkzyruqxfyefyinleot.jpg",
+    "id": 29
   }
 ]
