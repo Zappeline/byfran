@@ -54,8 +54,14 @@ export default function Home() {
   const [carrinho, setCarrinho] = useState([]);
   const [carrinhoAberto, setCarrinhoAberto] = useState(false);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const produtosPorPagina = 10;
+  const produtosPorPagina = 12;
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_CATALOGO;
+
+  const navegarParaPagina = (novaPagina) => {
+    const paginaDestino = Math.min(totalPaginas, Math.max(1, novaPagina));
+    setPaginaAtual(paginaDestino);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const obterPrecoAtual = (produto) => produto.precoDesconto != null && produto.precoDesconto < produto.preco ? produto.precoDesconto : produto.preco;
   const obterDescontoPercentual = (produto) => {
@@ -103,6 +109,7 @@ export default function Home() {
     setFiltroAberto(false);
     setPrecoAberto(false);
     setPaginaAtual(1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const selecionarOrdem = (ordem) => {
@@ -111,6 +118,7 @@ export default function Home() {
     setFiltroAberto(false);
     setPrecoAberto(false);
     setPaginaAtual(1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const produtosFiltrados = produtos
@@ -122,6 +130,11 @@ export default function Home() {
       return cats.includes(categoriaAtiva);
     })
     .sort((a, b) => {
+      const esgotadoA = a.esgotado ? 1 : 0;
+      const esgotadoB = b.esgotado ? 1 : 0;
+
+      if (esgotadoA !== esgotadoB) return esgotadoA - esgotadoB;
+
       const precoA = obterPrecoAtual(a);
       const precoB = obterPrecoAtual(b);
       if (ordemPreco === 'asc') return precoA - precoB;
@@ -211,7 +224,11 @@ export default function Home() {
             <button
               key={cat}
               className={`btn-filtro ${categoriaAtiva === cat ? 'ativo' : ''}`}
-              onClick={() => setCategoriaAtiva(cat)}
+              onClick={() => {
+                setCategoriaAtiva(cat);
+                setPaginaAtual(1);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               {cat === 'todos' ? 'Todos' : cat === 'mais vendidos' ? '★ Mais Vendidos' : cat === 'descontos' ? 'Descontos' : cat.charAt(0).toUpperCase() + cat.slice(1)}
             </button>
@@ -268,9 +285,9 @@ export default function Home() {
 
         {totalPaginas > 1 && (
           <div className="paginacao">
-            <button onClick={() => setPaginaAtual(p => Math.max(1, p - 1))} disabled={paginaAtual === 1}>‹ Anterior</button>
+            <button onClick={() => navegarParaPagina(paginaAtual - 1)} disabled={paginaAtual === 1}>‹ Anterior</button>
             <span>Página {paginaAtual} de {totalPaginas}</span>
-            <button onClick={() => setPaginaAtual(p => Math.min(totalPaginas, p + 1))} disabled={paginaAtual === totalPaginas}>Próxima ›</button>
+            <button onClick={() => navegarParaPagina(paginaAtual + 1)} disabled={paginaAtual === totalPaginas}>Próxima ›</button>
           </div>
         )}
       </div>

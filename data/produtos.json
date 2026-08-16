@@ -6,15 +6,15 @@
     "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
     "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
     "imagens": [
-      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193854/gt2six32gs0inhqpt0ck.jpg",
-      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193860/dsbfsy5ekmc0ym6ms4xw.jpg"
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193860/dsbfsy5ekmc0ym6ms4xw.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786898743/vemgnwvgjeefy5fnbkht.jpg"
     ],
     "categoria": [
       "brinco"
     ],
     "maisVendido": false,
     "esgotado": false,
-    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193854/gt2six32gs0inhqpt0ck.jpg",
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785193860/dsbfsy5ekmc0ym6ms4xw.jpg",
     "id": 1
   },
   {
@@ -314,7 +314,7 @@
       "brinco"
     ],
     "maisVendido": false,
-    "esgotado": false,
+    "esgotado": true,
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785197386/onarmptjixnv0do2siho.jpg",
     "id": 18
   },
@@ -512,5 +512,114 @@
     "esgotado": false,
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1785198339/mxkzyruqxfyefyinleot.jpg",
     "id": 29
+  },
+  {
+    "nome": "Pulseira Amor Infinito",
+    "preco": 69,
+    "descricao": "Versátil e marcante, essa pulseira transita com facilidade do look casual ao mais elegante. Ela também funciona perfeitamente em composições com mix de pulseiras, criando um efeito atual e estiloso.\nConfeccionada em couro, metais dourados e fecho imã. \nDisponível nos tamanhos 16, 17 e 18cm. \nCores disponíveis: preto, nude, caramelo, vermelho e marrom.",
+    "qualidade": "Banho e qualidade By Fran: bijuteria fina com banho flasch  e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786898778/rgsy1adeytvk3iusnnxp.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786898786/de8jysksitd4u5ppj7qw.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786898793/ad6bucz0lls64nqwzisb.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786900085/evz0yxfz3vc7khlbopvt.jpg"
+    ],
+    "categoria": [
+      "pulseira"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786898778/rgsy1adeytvk3iusnnxp.jpg",
+    "id": 30
+  },
+  {
+    "nome": "Brinco Arminda",
+    "preco": 119,
+    "descricao": "O maxi brinco Arminda é perfeito para composições modernas e elegantes. ",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899131/qpyrnqu5i4cfsemkurqu.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899137/zob2j0mr7mti6lz8smfs.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899131/qpyrnqu5i4cfsemkurqu.jpg",
+    "id": 31
+  },
+  {
+    "nome": "Colar Arminda",
+    "preco": 89,
+    "descricao": "O colar longo Arminda é perfeito para um look moderno, versátil e muito elegante. \nConfeccionado com 60cm de corrente em elos portugueses e pingente orgânico. ",
+    "qualidade": "Banho e qualidade By Fran: bijuteria fina com banho flasch  e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899338/vug6o7sc1miewgbhe3qt.jpg"
+    ],
+    "categoria": [
+      "colar"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899338/vug6o7sc1miewgbhe3qt.jpg",
+    "id": 32
+  },
+  {
+    "nome": "Colar Melissa",
+    "preco": 79,
+    "descricao": "O colar Melissa é confeccionado com 45cm de maxi elos, é ajustável e pode ser usado no dia a dia ou em ocasiões especiais.",
+    "qualidade": "Banho e qualidade By Fran: bijuteria fina com banho flasch  e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899502/docnojwt9hs608f5j9ms.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899507/njbmekccca9krqdjcr2d.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899511/w6nq8hbs5l35qom91txc.jpg"
+    ],
+    "categoria": [
+      "colar"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899502/docnojwt9hs608f5j9ms.jpg",
+    "id": 33
+  },
+  {
+    "nome": "Pulseira Melissa",
+    "preco": 69,
+    "descricao": "A pulseira Melissa é confeccionada em maxi elos e fecho imã. O que garante facilidade na hora de vestir seu acessório.\nTamanhos disponíveis: 16, 17 e 18cm.",
+    "qualidade": "Banho e qualidade By Fran: bijuteria fina com banho flasch  e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899717/zylpahizjqgbqrccknov.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899724/zdkxertcgym0hcoli7jb.jpg"
+    ],
+    "categoria": [
+      "pulseira"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786899717/zylpahizjqgbqrccknov.jpg",
+    "id": 34
+  },
+  {
+    "nome": "Pulseira Pietra",
+    "preco": 199,
+    "descricao": "A pulseira Pietra é confeccionada em metais dourados e três pingentes em pedras naturais. \nO colorido das pedras traz leveza e um ponto de cor ao look.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.\nPedras naturais podem apresentar variações em suas cores e formas. ",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786900160/yh3bwudndnwsd3hnad50.jpg"
+    ],
+    "categoria": [
+      "pulseira"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786900160/yh3bwudndnwsd3hnad50.jpg",
+    "id": 35
   }
 ]
