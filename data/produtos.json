@@ -621,5 +621,129 @@
     "esgotado": false,
     "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786900160/yh3bwudndnwsd3hnad50.jpg",
     "id": 35
+  },
+  {
+    "nome": "Colar e Brinco Camila",
+    "preco": 199,
+    "precoDesconto": 159,
+    "descricao": "Elegância marcante em uma combinação que une o brilho do dourado à beleza intensa da ágata verde. O conjunto é composto por colar e brincos, com design de linhas curvas e sobrepostas que criam um efeito moderno, sofisticado e cheio de personalidade.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.\nPedras naturais podem apresentar variações em suas cores e formas.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786900919/h9lubrqttcynksudgkxm.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786900925/fkchusfeeq1tetkfhunn.jpg"
+    ],
+    "categoria": [
+      "colar",
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786900919/h9lubrqttcynksudgkxm.jpg",
+    "id": 36
+  },
+  {
+    "nome": "Brinco Diva",
+    "preco": 149,
+    "precoDesconto": 119.2,
+    "descricao": "O maxi brinco Diva é a união perfeita entre o design moderno e o clássico atemporal. Destaca-se pelo brilho acetinado e pela sofisticação única da pérola shell. \nSeja para um evento glamuroso ou para elevar o look casual, este brinco é o verdadeiro protagonista do visual.  ",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786901395/kyrnqexyrkhourmxvunt.jpg",
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786902365/h2qfp0wbbgqeqanyquyt.jpg"
+    ],
+    "categoria": [
+      "brinco"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786901395/kyrnqexyrkhourmxvunt.jpg",
+    "id": 37
+  },
+  {
+    "nome": "Pulseira Clara",
+    "preco": 99,
+    "descricao": "A pulseira Clara é confeccionada com esferas douradas e pérolas, conferindo delicadeza e elegância atemporal.",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786901986/v1r5bjcgknnvk8eax8lx.jpg"
+    ],
+    "categoria": [
+      "pulseira"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786901986/v1r5bjcgknnvk8eax8lx.jpg",
+    "id": 38
+  },
+  {
+    "nome": "Pulseira Luiz",
+    "preco": 59,
+    "descricao": "Confeccionada em couro, fecho imã e metais em banho ônix. \nTamanhos disponíveis: 17, 18 e 19cm.",
+    "qualidade": "Banho e qualidade By Fran: bijuteria fina com banho flasch  e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786902525/ozwxkg0l1nh3zp5ewtdq.jpg"
+    ],
+    "categoria": [
+      "pulseira"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786902525/ozwxkg0l1nh3zp5ewtdq.jpg",
+    "id": 39
+  },
+  {
+    "nome": "Colar Personalizado",
+    "preco": 189,
+    "descricao": "Disponível apenas sob encomenda. \nPrazo de entrega, após o pagamento de 50% do valor total, é 30 dias. \n",
+    "qualidade": "Banho e qualidade By Fran: semijoia banhada a ouro e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786903168/gphfnhof1kaoippuelnc.jpg"
+    ],
+    "categoria": [
+      "colar"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786903168/gphfnhof1kaoippuelnc.jpg",
+    "id": 40
+  },
+  {
+    "nome": "Pulseira Nossa Senhora Aparecida",
+    "preco": 59,
+    "descricao": "A Pulseira Nossa Senhora Aparecida é confeccionada em couro, metais e fecho imã, deixando-a fácil de vestir.\nTamanhos: 16,17 e 18cm.",
+    "qualidade": "Banho e qualidade By Fran: bijuteria fina com banho flasch  e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786903505/orw349kfeeskuz0ovc3p.jpg"
+    ],
+    "categoria": [
+      "pulseira"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786903505/orw349kfeeskuz0ovc3p.jpg",
+    "id": 41
+  },
+  {
+    "nome": "Colar Betina",
+    "preco": 99,
+    "descricao": "o Colar Betina, além de elegante, é muito versátil, pois pode ser usado de duas formas: como um colar longo ou como um colar duplo. \n",
+    "qualidade": "Banho e qualidade By Fran: bijuteria fina com banho flasch  e acabamento em verniz que garante mais brilho e durabilidade à peça.",
+    "cuidados": "Evite contato com a água,  perfume, creme e outros produtos químicos. Após o uso, limpe sua peça com uma flanela macia e guarde em local seco.",
+    "imagens": [
+      "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786903847/rn7xgsxnbdwefby1ve2q.jpg"
+    ],
+    "categoria": [
+      "colar"
+    ],
+    "maisVendido": false,
+    "esgotado": false,
+    "imagem": "https://res.cloudinary.com/dlkdrjf57/image/upload/v1786903847/rn7xgsxnbdwefby1ve2q.jpg",
+    "id": 42
   }
 ]
